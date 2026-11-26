@@ -1,0 +1,25 @@
+name: Feature request
+description: Something you need to know about a file, or do to one, from the command line.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: >
+        The outcome, not the flag. Knowing the goal often turns up a way to do
+        it that already exists, and when it doesn't, it produces a better
+        command than one described in the abstract.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: What you do today instead
+      description: The workaround, if you have one (ffprobe, a script, Xcode).
+  - type: textarea
+    id: shape
+    attributes:
+      label: What the command might look like
+      description: Optional, and a sketch is fine.
+      render: shell

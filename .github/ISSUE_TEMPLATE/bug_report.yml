@@ -1,0 +1,42 @@
+name: Bug report
+description: A command reports something wrong about a file, or fails on one it should read.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. The most useful bug report is one someone
+        else can reproduce, so the fields below ask for that rather than for a
+        description of the symptom.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: The command and its output
+      description: >
+        The exact command, and what it printed. For `kadr inspect`, the
+        `--json` output is the most useful, because it holds every field.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: file
+    attributes:
+      label: The file
+      description: >
+        Where it came from (camera, app, encoder and its settings) and, if you
+        can share it, a link. `mediainfo` or `ffprobe` output for the same file
+        helps when it can't be shared.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "kadr --version, and macOS 15.2"
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question about using kadr-cli
+    url: https://github.com/SteliyanH/kadr/discussions
+    about: Shared with the rest of the kadr ecosystem, so answers stay in one place.
+  - name: The engine
+    url: https://github.com/SteliyanH/kadr
+    about: This tool is built on kadr. Composition and export questions belong upstream.
