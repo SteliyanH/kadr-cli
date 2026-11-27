@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+jobs:
+  test:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      # --no-parallel, as in every kadr repository: the fixtures are encoded with
+      # VideoToolbox, which runs out of concurrent sessions when every test
+      # encodes at once.
+      - run: swift test --no-parallel
+
+      # The release build is what the README tells people to install.
+      - name: Release build runs
+        run: |
+          swift build -c release
+          .build/release/kadr --version
+          .build/release/kadr inspect --help > /dev/null
+          .build/release/kadr thumb --help > /dev/null
